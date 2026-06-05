@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiaccolata 2026 – Drehplan Bergwacht Zollernalb</title>
+    <style>
+        :root {
+            --drk-red: #E30613;
+            --drk-red-dark: #C00511;
+            --ink: #1a1a1a;
+            --ink-soft: #4a4a4a;
+            --ink-muted: #767676;
+            --bg: #f7f7f7;
+            --card: #ffffff;
+            --line: #e8e8e8;
+            --red-tint: #fdf1f1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.65;
+            color: var(--ink);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== TOP BAR (weiß, Logo) ===== */
+        .topbar {
+            background: #fff;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .topbar-inner {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .topbar img {
+            height: 42px;
+            display: block;
+        }
+
+        @media (min-width: 640px) {
+            .topbar img {
+                height: 52px;
+            }
+        }
+
+        .topbar-label {
+            font-size: 0.8em;
+            font-weight: 700;
+            color: var(--ink-soft);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            text-align: right;
+        }
+
+        /* ===== HERO (rot) ===== */
+        .hero {
+            background: var(--drk-red);
+            color: #fff;
+            padding: 40px 16px 38px;
+        }
+
+        .hero-inner {
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        .hero .kicker {
+            font-size: 0.85em;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #fff;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2em, 7vw, 3.2em);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 1.1em;
+            color: #fff;
+            max-width: 560px;
+        }
+
+        /* ===== CONTENT ===== */
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 24px 12px 16px;
+        }
+
+        section {
+            background: var(--card);
+            padding: 24px 20px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            border: 1px solid var(--line);
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                padding: 48px 24px 24px;
+            }
+
+            section {
+                padding: 36px 40px;
+                margin-bottom: 28px;
+            }
+
+            .hero {
+                padding: 64px 24px 60px;
+            }
+
+            .topbar-inner {
+                padding: 12px 24px;
+            }
+        }
+
+        section h2 {
+            color: var(--ink);
+            font-size: 1.5em;
+            font-weight: 750;
+            letter-spacing: -0.01em;
+            margin-bottom: 6px;
+        }
+
+        .h2-bar {
+            width: 44px;
+            height: 4px;
+            background: var(--drk-red);
+            border-radius: 2px;
+            margin-bottom: 22px;
+        }
+
+        section h3 {
+            color: var(--ink);
+            font-size: 1.05em;
+            font-weight: 700;
+            margin-top: 28px;
+            margin-bottom: 12px;
+        }
+
+        section h3:first-of-type {
+            margin-top: 4px;
+        }
+
+        p {
+            margin-bottom: 14px;
+            color: var(--ink-soft);
+        }
+
+        p strong, li strong {
+            color: var(--ink);
+        }
+
+        ul {
+            margin: 0 0 16px 4px;
+            list-style: none;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding-left: 22px;
+            position: relative;
+            color: var(--ink-soft);
+        }
+
+        li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 8px;
+            height: 8px;
+            background: var(--drk-red);
+            border-radius: 2px;
+        }
+
+        /* ===== HIGHLIGHT BOX ===== */
+        .highlight {
+            background: var(--red-tint);
+            padding: 18px 22px;
+            border-radius: 6px;
+            margin: 22px 0;
+            border-left: 4px solid var(--drk-red);
+            color: var(--ink-soft);
+        }
+
+        .highlight strong {
+            color: var(--drk-red);
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline {
+            margin-top: 8px;
+        }
+
+        .day {
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 16px 16px;
+            margin-bottom: 14px;
+        }
+
+        @media (min-width: 640px) {
+            .day {
+                padding: 22px 26px;
+                margin-bottom: 18px;
+            }
+        }
+
+        .day:last-child {
+            margin-bottom: 0;
+        }
+
+        .day-header {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .day-date {
+            color: var(--drk-red);
+            font-weight: 800;
+            font-size: 0.9em;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .day-title {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        .day-content p {
+            margin-bottom: 8px;
+            font-size: 0.97em;
+        }
+
+        .day-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .caption-tag {
+            display: inline-block;
+            background: var(--bg);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 6px 12px;
+            margin-top: 6px;
+            font-size: 0.95em;
+            color: var(--ink);
+        }
+
+        /* ===== KONTAKT ===== */
+        .contact {
+            background: var(--bg);
+            padding: 22px 26px;
+            border-radius: 8px;
+            margin-top: 6px;
+        }
+
+        .contact strong {
+            color: var(--drk-red);
+        }
+
+        .contact a {
+            color: var(--drk-red);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 28px 24px 48px;
+            color: var(--ink-muted);
+            font-size: 0.88em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR mit Logo auf Weiß -->
+    <div class="topbar">
+        <div class="topbar-inner">
+            <img src="drk-logo.png" alt="Deutsches Rotes Kreuz">
+            <span class="topbar-label">Bergwacht Zollernalb</span>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-inner">
+            <div class="kicker">07. – 11. Juni 2026</div>
+            <h1>Fiaccolata 2026</h1>
+            <p>Drehplan & Konzept der Bergwacht Zollernalb für den DRK-Kreisverband</p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- WAS IST FIACCOLATA -->
+        <section>
+            <h2>Was ist Fiaccolata?</h2>
+            <div class="h2-bar"></div>
+            <p>
+                <strong>Fiaccolata</strong> ist eine Initiative des DRK-Landesverbands Baden-Württemberg. 
+                Eine Fackel wandert vom <strong>6. bis 11. Juni 2026</strong> durch verschiedene Kreisverbände 
+                und symbolisiert den Zusammenhalt des DRK – über alle Ebenen hinweg: Hauptamt und Ehrenamt, 
+                verschiedene Gliederungen und Ortsvereine.
+            </p>
+            <p>
+                Die Fackel wird nicht einfach „übergeben" – sie wird <strong>erlaufen, erradelt, erwandert</strong>. 
+                Überall dort, wo sie ankommt, entsteht eine kleine Geschichte von Menschen, die sich für andere einsetzen.
+            </p>
+        </section>
+
+        <!-- UNSERE IDEE -->
+        <section>
+            <h2>Unsere Idee für Zollernalb</h2>
+            <div class="h2-bar"></div>
+            <p>
+                Die <strong>Bergwacht Zollernalb</strong> dokumentiert die fünf Tage mit <strong>Instagram-Videos</strong> – 
+                wir übernehmen Dreh, Schnitt und die Gesamtorganisation. Jeder Tag zeigt die Arbeit verschiedener 
+                Organisationen des DRK-Kreisverbands Zollernalb.
+            </p>
+
+            <div class="highlight">
+                <strong>So funktioniert's:</strong> Wir filmen euch bei dem, was ihr tut. Wenn ihr Ideen oder 
+                Wünsche habt, wie eure Organisation beleuchtet werden soll, teilt sie mit uns. Wir integrieren sie. 
+                Ansonsten zeigen wir eure echte Arbeit – heroisch und authentisch.
+            </div>
+
+            <h3>Das Konzept:</h3>
+            <ul>
+                <li><strong>POV-Kamera an der Brust:</strong> Die Fackel bleibt immer an der gleichen Stelle im Bild</li>
+                <li><strong>Viele Schnitte:</strong> Die Umgebung wechselt, die Fackel wandert durch Zollernalb</li>
+                <li><strong>Kurze Videos:</strong> 12–18 Sekunden pro Reel</li>
+                <li><strong>Verschiedene Teams:</strong> Rettungsdienst, Bergwacht, Wasserwacht, Motorradstaffel, Drohnenstaffel, Ortsverein</li>
+                <li><strong>Authentisch:</strong> Keine Inszenierung – echte Arbeit, echte Menschen</li>
+            </ul>
+
+            <div class="highlight">
+                <strong>Wichtig:</strong> Die Flamme wird animiert. Sie brennt <strong>symbolisch</strong>, 
+                nicht echt – aus Gründen der Sicherheit und des Naturschutzes.
+            </div>
+        </section>
+
+        <!-- DREHPLAN -->
+        <section>
+            <h2>Der Drehplan (07.06. – 11.06.)</h2>
+            <div class="h2-bar"></div>
+
+            <div class="timeline">
+                <!-- SONNTAG -->
+                <div class="day">
+                    <div class="day-header">
+                        <span class="day-date">So, 07.06.</span>
+                        <span class="day-title">Die Fackel kommt an</span>
+                    </div>
+                    <div class="day-content">
+                        <p><strong>Team:</strong> Alle zusammen (Ankommen)</p>
+                        <p><strong>Video:</strong> Übergang (POV-Fackel mit Brust-Kamera) zu verschiedenen Orten. Dann: Gruppe mit Fackel, normal gefilmt, präsent und bereit.</p>
+                        <p><strong>Ort:</strong> Markante Orte in Zollernalb (z.B. Burg, Marktplatz)</p>
+                        <p><span class="caption-tag">Einblendung: „Die Fackel ist da. Wir machen mit. 🔥"</span></p>
+                    </div>
+                </div>
+
+                <!-- MONTAG -->
+                <div class="day">
+                    <div class="day-header">
+                        <span class="day-date">Mo, 08.06.</span>
+                        <span class="day-title">Rettungsdienst & ILS</span>
+                    </div>
+                    <div class="day-content">
+                        <p><strong>Team:</strong> Rettungsdienst, ILS / Leitstelle</p>
+                        <p><strong>Video:</strong> Übergang (POV-Fackel). Dann: Schnelle Schnitte von eurer Arbeit – Fahrzeuge, Leitstelle, Einsatzmittel, Menschen bei dem, was sie tun.</p>
+                        <p><strong>Ort:</strong> Rettungswache, Leitstelle oder euer Standort</p>
+                        <p><span class="caption-tag">Einblendung: „Wir fahren raus für euch. Jeden Tag. 🚑"</span></p>
+                    </div>
+                </div>
+
+                <!-- DIENSTAG -->
+                <div class="day">
+                    <div class="day-header">
+                        <span class="day-date">Di, 09.06.</span>
+                        <span class="day-title">Bergwacht</span>
+                    </div>
+                    <div class="day-content">
+                        <p><strong>Team:</strong> Bergwacht Zollernalb</p>
+                        <p><strong>Video:</strong> Übergang (POV-Fackel über Berg/Felswand). Dann: Schnitte – Ausrüstung, Menschen in Aktion, Höhe, Technik, Konzentration.</p>
+                        <p><strong>Ort:</strong> Schlossfelsen, Traufgang, Traufkante oder andere markante Höhen</p>
+                        <p><span class="caption-tag">Einblendung: „Das ist unsere Arbeit. Und unser Ehrenamt. 🏔️"</span></p>
+                    </div>
+                </div>
+
+                <!-- MITTWOCH -->
+                <div class="day">
+                    <div class="day-header">
+                        <span class="day-date">Mi, 10.06.</span>
+                        <span class="day-title">Alle Teams zusammen</span>
+                    </div>
+                    <div class="day-content">
+                        <p><strong>Teams:</strong> Wasserwacht, Motorradstaffel, Drohnenstaffel, Ortsverein</p>
+                        <p><strong>Video:</strong> Übergang (POV-Fackel schnelle Schnitte zwischen Teams). Dann: Jedes Team gezeigt bei seiner Arbeit – Boot, Motorrad, Drohne, Ortsverein. Normal gefilmt, professionell, fokussiert.</p>
+                        <p><strong>Ort:</strong> Verschiedene Orte – jedes Team an seinem Standort</p>
+                        <p><span class="caption-tag">Einblendung: „Verschiedene Teams. Ein DRK. 🔥"</span></p>
+                    </div>
+                </div>
+
+                <!-- DONNERSTAG -->
+                <div class="day">
+                    <div class="day-header">
+                        <span class="day-date">Do, 11.06.</span>
+                        <span class="day-title">Abschluss & Weitergabe</span>
+                    </div>
+                    <div class="day-content">
+                        <p><strong>Team:</strong> Alle Organisationen zusammen</p>
+                        <p><strong>Video:</strong> Übergang (POV-Fackel geht weiter, Erinnerungsblitze aus 4 Tagen). Dann: Alle Teams präsent, die Fackel wird kraftvoll zur nächsten KV weitergegeben.</p>
+                        <p><strong>Ort:</strong> Panorama oder markanter Ort in Zollernalb</p>
+                        <p><span class="caption-tag">Einblendung: „Bis zur nächsten Station. Das Feuer brennt weiter. 🔥"</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABLAUF & ROLLE -->
+        <section>
+            <h2>Ablauf & Deine Rolle</h2>
+            <div class="h2-bar"></div>
+
+            <h3>Das organisieren wir (Bergwacht Zollernalb):</h3>
+            <ul>
+                <li>Gesamtkonzept und zeitliche Planung</li>
+                <li>Alle Drehs (wir kommen zu euch)</li>
+                <li>Schnitt und Bearbeitung</li>
+                <li>Upload und Posting auf Instagram</li>
+            </ul>
+
+            <h3>Das könnt ihr einbringen:</h3>
+            <ul>
+                <li><strong>Menschen:</strong> Wenn ihr beim Dreh dabei seid – das ist das Beste. Eure Leute zeigen eure Arbeit authentisch.</li>
+                <li><strong>Ideen (optional):</strong> Falls ihr spezifische Wünsche habt, wie eure Arbeit rüberkommen soll – sehr gerne. Aber kein Muss.</li>
+                <li><strong>Timing:</strong> Der Dreh dauert ca. <strong>1 Stunde</strong>. Wir können den Dreh-Tag flexibel mit euch absprechen – muss aber spätestens am Tag des Posts stattfinden (falls am selben Tag, dann bis zum Nachmittag).</li>
+            </ul>
+
+            <div class="highlight">
+                <strong>Klartext:</strong> Wir können das auch alleine machen und werden es tun, wenn nötig. 
+                Aber wir freuen uns über jede Person, die beim Dreh dabei ist und ihre Arbeit zeigt. Das macht den Unterschied.
+            </div>
+
+            <h3>So filmen wir:</h3>
+            <ul>
+                <li><strong>Übergänge (POV-Fackel):</strong> Mit Kamera an der Brust (GoPro oder Handy in Halterung). Die Fackel bleibt gleich im Bild, Schnitte zeigen verschiedene Orte.</li>
+                <li><strong>Eure Arbeit:</strong> Mit normalen Kameraperspektiven gefilmt – von vorne, von der Seite, Close-ups, Wide Shots. Was eure Arbeit am besten zeigt.</li>
+                <li><strong>Schnitte:</strong> 3–5 unterschiedliche Perspektiven pro Video, schnell montiert</li>
+                <li><strong>Fokus:</strong> Eure Menschen, eure Einsatzmittel, eure Leidenschaft – authentisch</li>
+                <li><strong>Musik:</strong> Wird nachträglich drauf gelegt</li>
+                <li><strong>Animierte Flamme:</strong> Wird in Bearbeitung eingefügt</li>
+            </ul>
+
+            <div class="highlight">
+                <strong>Das Wichtigste:</strong> Das Konzept ist ein Rahmen. Der Fokus liegt auf <strong>echten Menschen, echter Arbeit, echtem Einsatz</strong>. 
+                Wir zeigen, warum ihr brennt für das, was ihr tut. Das ist heldenhaft genug.
+            </div>
+        </section>
+
+        <!-- KONTAKT -->
+        <section>
+            <h2>Fragen? Input?</h2>
+            <div class="h2-bar"></div>
+            <div class="contact">
+                <p style="margin-bottom: 0;">
+                    <strong>Zum Dreh, zur Planung & eure Ideen:</strong><br>
+                    Laura Sauer<br>
+                    Bergwacht Zollernalb<br>
+                    <a href="mailto:laura.sauer@drk-zollernalb.de">laura.sauer@drk-zollernalb.de</a><br>
+                    Tel: 0178 4487753
+                </p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Fiaccolata 2026 – DRK-Landesverband Baden-Württemberg</p>
+        <p style="margin-top: 6px;">Drehplan der Bergwacht Zollernalb</p>
+    </footer>
+
+</body>
+</html>
